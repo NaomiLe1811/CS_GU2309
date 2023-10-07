@@ -1,2 +1,3 @@
 # CS_GU2309
- CodeGym exercises
+ Tervetuloa! Tässä on Naomin kotitehtävä
+ Feel free to clone, or whatever

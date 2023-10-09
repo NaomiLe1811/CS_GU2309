@@ -64,7 +64,7 @@ namespace Currency
                 result_2 = usdInput * 23000;
                 Console.WriteLine("ok now that is " + result_2 + " vnd");
             }
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

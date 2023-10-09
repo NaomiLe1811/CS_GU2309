@@ -1,0 +1,14 @@
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings.deps.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings.runtimeconfig.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings.runtimeconfig.dev.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings.dll
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/bin/Debug/netcoreapp3.1/Greetings.pdb
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.csproj.AssemblyReference.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.AssemblyInfoInputs.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.AssemblyInfo.cs
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.csproj.CoreCompileInputs.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.dll
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.pdb
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Greetings/Greetings/obj/Debug/netcoreapp3.1/Greetings.genruntimeconfig.cache

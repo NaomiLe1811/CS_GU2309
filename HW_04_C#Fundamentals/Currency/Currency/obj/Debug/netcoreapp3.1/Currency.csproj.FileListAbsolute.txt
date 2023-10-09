@@ -1,0 +1,14 @@
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.csproj.AssemblyReference.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.AssemblyInfoInputs.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.AssemblyInfo.cs
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.csproj.CoreCompileInputs.cache
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency.deps.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency.runtimeconfig.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency.runtimeconfig.dev.json
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency.dll
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/bin/Debug/netcoreapp3.1/Currency.pdb
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.dll
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.pdb
+/Users/nguyenle/Desktop/Desktop/Study/CodeGym/CS_GU2309/HW_04_C#Fundamentals/Currency/Currency/obj/Debug/netcoreapp3.1/Currency.genruntimeconfig.cache

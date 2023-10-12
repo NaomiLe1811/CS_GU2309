@@ -117,8 +117,8 @@ namespace HW_05_Extra
                         if (inputC > inputA && inputC > inputB && inputA > inputB) //case6
                         {
                             Console.WriteLine(inputC + " is the hightest number");
-                            Console.WriteLine(inputB + " is the smallest number");
-                        }
+                            Console.WriteLine(inputB + " is the smallest number"); 
+                        } // still more 3 case 
                     }
                     else
                     {
@@ -339,7 +339,7 @@ namespace HW_05_Extra
             Console.WriteLine("Enter your input ");
             if (int.TryParse(Console.ReadLine(), out int number) && number >= 1000 && number <= 9999)
             {
-                //vd: co so 4362, tong se la 4 + 2 va 6 + 2, a va d + b va c, nghia la a*d + b*c
+                //vd: co so 4362, tong se la 4 va 2 va 6 va 2, a va d + b va c, nghia la a*d + b*c
                 //hint: tat ca cac input chay tu 1000 den 9999
                 //a va d nam o don vi chuc, nen a phai chia cho 1000
                 //b va c nam o don vi ..., nen phai chia them cho 10 de vo expresion la du
@@ -349,12 +349,12 @@ namespace HW_05_Extra
                 //d (giá trị hàng đơn vị) = 4362 % 10 = 2 (d (giá trị hàng đơn vị) có thể lấy bằng cách chia số cho 10.)
                 //result is a = 4, b = 3, c = 6, và d = 2 
 
-                int a = number / 1000;       // Extract the thousands digit
-                int b = (number / 1000)%10;  // Extract the hundreds digit
-                int c = (number / 10)%10;    // Extract the tens digit
-                int d = number / 1000;       // Extract the ones digit
+                int a = number / 1000;       // Extract the thousands digit 1234 1.234
+                int b = (number % 1000)/100;  // Extract the hundreds digit 1234 1.234
+                int c = (number / 10)%10;    // Extract the tens digit 1234 12.34
+                int d = number / 1000;       // Extract the ones digit 1234 123.4
 
-                int result = (a * 10 + d) + (b * 10 + c); // Calculate ad + bc
+                int result = (a * 10 + d) + (b * 10 + c); // Calculate ad + bc 
 
                 Console.WriteLine("Result: " + result);
             }
@@ -391,13 +391,22 @@ namespace HW_05_Extra
                     if (int.TryParse(Console.ReadLine(), out giay) && giay >= 0 && giay <= 59)
                     {
                         Console.WriteLine("YES");
-                        gio = phut * 60;
-                        phut = giay * 60;
-                        giay = 1 / 3600 * gio;
-                
-                        Console.WriteLine("Hour: " + gio);
-                        Console.WriteLine("Second: " + giay);
-
+                        giay++;
+                        if (giay == 60)
+                        {
+                            giay = 0;
+                            phut = phut + 1;
+                            if (phut == 60)
+                            {
+                                phut = 0;
+                                gio = gio + 1;
+                                if (gio == 24)
+                                {
+                                    gio = 0;
+                                }
+                            }
+                        }
+                        Console.WriteLine("Gio la: " + gio + " phut la: " + phut + " giay la: " + giay);
                     }
                     else
                     {

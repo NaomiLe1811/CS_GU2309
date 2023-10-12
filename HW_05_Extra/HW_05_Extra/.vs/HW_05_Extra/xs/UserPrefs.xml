@@ -1,12 +1,24 @@
 ﻿<Properties StartupConfiguration="{FA8BCCCD-A9F3-4596-9BFD-F116CAC70AD2}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="HW_05_Extra/Program.cs">
     <Files>
-      <File FileName="HW_05_Extra/Program.cs" Line="1" Column="1" />
+      <File FileName="HW_05_Extra/Program.cs" Line="388" Column="82" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HW_05_Extra" expanded="True" selected="True">
+            <Node name="HW_05_Extra" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.HW__05__Extra FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.HW__05__Extra PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

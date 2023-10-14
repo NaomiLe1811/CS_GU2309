@@ -41,13 +41,9 @@ namespace Simple_Equation
                 }
             } else
             {
-                //count--;
-                //if (count == 0)
-                //{
                     Console.WriteLine("Invalid input a");
                     goto tudau;
                 }
-           // }
             Console.ReadKey();
         }
     }

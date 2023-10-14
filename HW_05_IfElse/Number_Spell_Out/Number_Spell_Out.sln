@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.25
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Number_Spell_Out", "Number_Spell_Out\Number_Spell_Out.csproj", "{D9ACCBAF-72F9-47A8-B456-DD1204A931E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9ACCBAF-72F9-47A8-B456-DD1204A931E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9ACCBAF-72F9-47A8-B456-DD1204A931E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9ACCBAF-72F9-47A8-B456-DD1204A931E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9ACCBAF-72F9-47A8-B456-DD1204A931E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99BF1544-8521-429D-8409-1AEAE85E3970}
+	EndGlobalSection
+EndGlobal

@@ -118,7 +118,13 @@ namespace HW_05_Extra
                         {
                             Console.WriteLine(inputC + " is the hightest number");
                             Console.WriteLine(inputB + " is the smallest number"); 
-                        } // still more 3 case 
+                        } // still more 3 case
+
+                        //Cach2
+                        /*int max = Math.Max(Math.Max(a, b), c);
+                        int min = Math.Min(Math.Min(a, b), c);
+                        Console.WriteLine($"so lon nhat la {max}");
+                        Console.WriteLine($"so be nhat la {min}");*/
                     }
                     else
                     {
@@ -144,29 +150,34 @@ namespace HW_05_Extra
         {
             //Nhập vào 2 số nguyên và 1 phép toán. Yêu cầu xuất ra kết quả phép tính dựa trên phép toán(là 1 trong 4 phép toán: +,-,*,%)
             int a, b;
-        again:
-            Console.WriteLine("Ex4: Input 2 integer number to caculate a + b");
-            if (int.TryParse(Console.ReadLine(), out a))
-            {
+            Console.WriteLine("Nhap 2 so a, b:");
+            a = int.Parse(Console.ReadLine());
+            b = int.Parse(Console.ReadLine());
 
-                if (int.TryParse(Console.ReadLine(), out b))
-                {
-                    int c = a + b;
-                    Console.WriteLine("The result is: " + c);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input");
-                    goto again;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input, please try again");
-                goto again;
-            }
+            char tinh;
 
-            Console.WriteLine("Now move to the next exercise");
+            Console.Write("Nhap phep tinh: ");
+            tinh = char.Parse(Console.ReadLine());
+
+            switch (tinh)
+            {
+                case '+':
+                    Console.WriteLine(a + b);
+                    break;
+                case '-':
+                    Console.WriteLine(a - b);
+                    break;
+                case '*':
+                    Console.WriteLine(a * b);
+                    break;
+                case '%':
+                    Console.WriteLine(a % b);
+                    break;
+                default:
+                    Console.WriteLine("Khong hop le!");
+                    break;
+
+                    Console.WriteLine("Now move to the next exercise");
             Console.WriteLine("_______________________________");
             Console.WriteLine(" ");
         }
@@ -299,6 +310,46 @@ namespace HW_05_Extra
             {
                 Console.WriteLine("Invalid input for the month. Please enter a month between 1 and 12.");
             }
+
+                /* 
+                 int t, n;
+                nhap_du_lieu:
+                Console.Write("Nhap thang: ");
+                t = int.Parse(Console.ReadLine());
+                Console.Write("Nhap nam: ");
+                n = int.Parse(Console.ReadLine());
+                if(t>0 && t <= 12)
+                {
+                    Console.WriteLine("Ban da nhap hop le!");
+                }
+                else
+                {
+                    Console.WriteLine("Ban da nhap khong hop le. Vui long nhap lai!");
+                    goto nhap_du_lieu;
+                }
+
+                if(t == 1 || t == 3 || t == 5 || t == 7 || t == 8 || t == 10 || t == 12)
+                {
+                    Console.WriteLine("Thang {0} nam {1} co 31 ngay", t, n);
+                }
+                else
+                {
+                    if(t == 2)
+                    {
+                        if (n % 400 == 0 || (n % 4 == 0 && n % 100 != 0))
+                        {
+                            Console.WriteLine("Thang {0} nam {1} co 29 ngay", t, n);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thang {0} nam {1} co 28 ngay", t, n);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Thang {0} nam {1} co 30 ngay", t, n);
+                    }
+                 */
             Console.WriteLine("Now move to the next exercise");
             Console.WriteLine("_______________________________");
             Console.WriteLine(" ");

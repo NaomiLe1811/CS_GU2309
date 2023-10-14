@@ -17,7 +17,7 @@ namespace Menu
                 Console.WriteLine("3. Draw the rectangle");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
-                choice = Int32.Parse(Console.ReadLine());
+                choice = short.Parse(Console.ReadLine()); //make the program lighter
                 #endregion
 
                 switch (choice)
@@ -31,6 +31,7 @@ namespace Menu
                     Console.WriteLine("**");
                     Console.WriteLine("*");
                     break;
+
                 case 2:
                     Console.WriteLine("Draw the square");
                     Console.WriteLine("* * * * * *");

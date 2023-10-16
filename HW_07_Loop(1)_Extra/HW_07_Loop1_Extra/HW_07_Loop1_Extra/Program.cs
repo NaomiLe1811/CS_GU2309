@@ -11,7 +11,8 @@ namespace HW_07_Loop1_Extra
             //Exercise3();
             //Exercise4();
             //Exercise5();
-            Exercise6();
+            //Exercise6();
+            Exercise7();
 
             Console.ReadKey();
         }
@@ -232,7 +233,28 @@ namespace HW_07_Loop1_Extra
         }
         static void Exercise7()
         {
-
+            // In ra bảng cửu chương từ 2 tới 10 khi nhấn phím Space
+            int number = 2;
+            Console.WriteLine("Press the Spacebar to view the multiplication table from 2 to 10");
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey();
+                if (key.Key == ConsoleKey.Spacebar)
+                {
+                    Console.WriteLine();
+                    for (int i = 2; i <= 10; i++)
+                    {
+                        Console.WriteLine("Multiplication table for " + i);
+                        for (int j = 1; j <= 10; j++)
+                        {
+                            Console.WriteLine(i + " * " + j + " = " + (i * j));
+                        }
+                        Console.WriteLine(); // Add a line for separation between tables
+                    }
+                    break;
+                }
+                Console.WriteLine("\nPlease press the Spacebar to view the multiplication table");
+            }
         }
     }
 }

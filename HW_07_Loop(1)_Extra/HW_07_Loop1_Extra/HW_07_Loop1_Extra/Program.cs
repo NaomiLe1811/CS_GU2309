@@ -14,7 +14,9 @@ namespace HW_07_Loop1_Extra
             //Exercise6();
             //Exercise7();
             //Exercise8();
-            Exercise9();
+            //Exercise9();
+            Exercise10(); //check the formular for count digit and take first digit again
+                          //does not work
 
             Console.ReadKey();
         }
@@ -285,6 +287,10 @@ namespace HW_07_Loop1_Extra
         }
         static void Exercise9()
         {
+        //Nhập vào 2 số nguyên dương N,M (N > M). Yêu cầu kiểm tra tích các chữ số của N có bằng tổng các ước của M hay không? Nếu có xuất YES ngược lại xuất NO. Ví dụ:
+        // • Nhập N = 23, M = 6 => NO
+        //• Nhập N = 34, M = 6 => YES
+
             int a;
             int b;
 
@@ -302,9 +308,9 @@ namespace HW_07_Loop1_Extra
                         product *= (int)Char.GetNumericValue(digit); //compound assignment operators in C#
                     }
 
-                    int sumOfb = SumOfDivisors(b);//start compare
+                    int sumOfb = SumOfDivisors(b);//access parameter
 
-                    if (product == sumOfb)
+                    if (product == sumOfb)//start compare
                     {
                         Console.WriteLine("YES");
                     }
@@ -340,9 +346,68 @@ namespace HW_07_Loop1_Extra
             }
             return sum;
         }
-        static void Exervise10()
+        static void Exercise10()
         {
+            //[BOBA] Nhập vào 3 số nguyên dương N,M,K. Kiểm tra tổng các chữ số của N cộng với chữ số đầu tiên của M có bằng K hay không? Nếu có xuất Yes ngược lại xuất No.
 
+            int N, M, K;
+            Console.WriteLine("Input 3 different integer");
+            again3:
+            Console.WriteLine("Enter N ");
+            if(int.TryParse(Console.ReadLine(), out N))
+            {   again2:
+                Console.WriteLine("Enter M ");
+                if (int.TryParse(Console.ReadLine(), out M))
+                {   again1:
+                    Console.WriteLine("Enter K ");
+                    if (int.TryParse(Console.ReadLine(), out K))
+                    {
+                        int inputN = SumOfN(N);
+                        int inputM = FirstDigitOfM(M);
+                        int resultK = inputN + inputM; // Calculate the sum
+                        if (resultK == K) // Compare with K
+                        {
+                            Console.WriteLine("YES");
+                        }
+                        else
+                        {
+                            Console.WriteLine("NO");
+                        }
+                    } else
+                    {
+                        Console.WriteLine("Please enter valid input");
+                        goto again1;
+                    }
+                } else {
+                    Console.WriteLine("Please enter valid input");
+                    goto again2;
+                }
+            } else
+            {
+                Console.WriteLine("Please enter valid input");
+                goto again3;
+            }
+        }
+
+       static int SumOfN(int number)
+        {
+            int sum = 0;
+            int temp = number < 0 ? -number : number; // Take absolute value to handle negative numbers
+            while (temp != 0)
+            {
+                sum += temp % 10; // Add the last digit to sum
+                temp /= 10; // Remove the last digit from number
+            }
+            return sum;
+        }
+        static int FirstDigitOfM(int number)
+        {
+            int temp = number < 0 ? -number : number; // Take absolute value to handle negative numbers
+            while (temp >= 10)
+            {
+                temp /= 10; // Remove the last digit from number
+            }
+            return temp;
         }
     }
 }

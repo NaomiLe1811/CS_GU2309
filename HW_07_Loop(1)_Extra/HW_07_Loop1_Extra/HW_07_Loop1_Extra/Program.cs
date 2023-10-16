@@ -9,6 +9,9 @@ namespace HW_07_Loop1_Extra
             Exercise1();
             Exercise2();
             Exercise3();
+            Exercise4();
+            Exercise5();
+            Exercise6();
 
             Console.ReadKey();
         }
@@ -18,7 +21,7 @@ namespace HW_07_Loop1_Extra
             //Nhập số nguyên A và kiểm tra xem A có phải là số nguyên tố hay không ?
             //tai sao phai dung loop trong khi i > 1
             int number;
-            again:
+        again:
             Console.WriteLine("Enter a prime number: ");
 
             if (int.TryParse(Console.ReadLine(), out number) && number < 2)
@@ -100,7 +103,7 @@ namespace HW_07_Loop1_Extra
         static void Exercise3()
         {
             //Nhập vào 1 số nguyên và xuất là Yes nếu nó là số hoàn hảo, ngược lại xuất No. Gợi ý: số hoàn hảo là số mà tổng ước số của nó(không tính nó) bằng chính nó.
-            int input;
+            int input; //bug, lan 2 xuat ra nluon bi loi
             int sum = 0;
         again:
             Console.WriteLine("Enter your input to check perfect number: ");
@@ -139,6 +142,74 @@ namespace HW_07_Loop1_Extra
             Console.WriteLine("Now move to the next exercise");
             Console.WriteLine("_______________________________");
             Console.WriteLine(" ");
+        }
+        static void Exercise4()
+        {   //Nhập vào 2 số nguyên a và b. Yêu cầu tìm UCLN của 2 số đó.
+
+            int a; //chua hieu cong thuc, xem lai
+            int b;
+            //int gcd;
+        again:
+            Console.WriteLine("Find greatest common divisor");
+            Console.WriteLine("Enter your first input");
+            if (int.TryParse(Console.ReadLine(), out a) && a > 0)
+            {
+                Console.WriteLine("Enter your second input");
+                if (int.TryParse(Console.ReadLine(), out b) && b > 0)
+                {
+                    a = Math.Abs(a);
+                    b = Math.Abs(b);
+                    while (b != 0)
+                    {
+                        int temp = b;
+                        b = a % b;
+                        a = temp;
+                    }
+                    Console.WriteLine("GCD is " + a);
+
+                }
+                else
+                {
+                    Console.WriteLine("Please enter valid input != 0");
+                    goto again;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please enter valid input != 0");
+            }
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+        static void Exercise5()
+        {
+            //Nhập vào 1 số nguyên n, xuất ra n!
+            int n;
+            int sum = 1;
+            Console.WriteLine("Enter n to print !n");
+            again:
+            Console.WriteLine("Enter your input");
+            if(int.TryParse(Console.ReadLine(), out n))
+            {
+                int i;
+                for(i = 1; i <= n; i++)
+                {
+                    sum = sum * i;
+                }
+                Console.Write(sum);
+            } else
+            {
+                Console.WriteLine("Please enter valid input != 0");
+                goto again;
+            }
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+        static void Exercise6()
+        {
+
         }
     }
 }

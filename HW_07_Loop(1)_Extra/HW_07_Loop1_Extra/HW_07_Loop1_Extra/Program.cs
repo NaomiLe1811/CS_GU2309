@@ -6,11 +6,11 @@ namespace HW_07_Loop1_Extra
     {
         static void Main(string[] args)
         {
-            Exercise1();
-            Exercise2();
-            Exercise3();
-            Exercise4();
-            Exercise5();
+            //Exercise1();
+            //Exercise2();
+            //Exercise3();
+            //Exercise4();
+            //Exercise5();
             Exercise6();
 
             Console.ReadKey();
@@ -197,7 +197,8 @@ namespace HW_07_Loop1_Extra
                 {
                     sum = sum * i;
                 }
-                Console.Write(sum);
+                Console.WriteLine(sum);
+                Console.Write(" ");
             } else
             {
                 Console.WriteLine("Please enter valid input != 0");
@@ -208,6 +209,28 @@ namespace HW_07_Loop1_Extra
             Console.WriteLine(" ");
         }
         static void Exercise6()
+        {
+            //Nhập vào số i, yêu cầu xuất ra bảng cửu chương thứ i
+            int input;
+            Console.WriteLine("Multiplication table");
+        again:
+            Console.WriteLine("Enter your input");
+            if ((int.TryParse(Console.ReadLine(), out input ) && input >= 1 && input <= 10)){
+                Console.WriteLine(input);
+                for (int i = 1; i <= 10; i++)
+                {
+                    Console.WriteLine(input + " * " + i + "=" + (input * i));
+                }
+            } else
+            {
+                Console.WriteLine("Please enter valid input from 1 to 10");
+                goto again;
+            }
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+        static void Exercise7()
         {
 
         }

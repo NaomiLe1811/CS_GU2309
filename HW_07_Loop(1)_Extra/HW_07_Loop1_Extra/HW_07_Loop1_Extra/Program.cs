@@ -12,7 +12,9 @@ namespace HW_07_Loop1_Extra
             //Exercise4();
             //Exercise5();
             //Exercise6();
-            Exercise7();
+            //Exercise7();
+            //Exercise8();
+            Exercise9();
 
             Console.ReadKey();
         }
@@ -255,6 +257,92 @@ namespace HW_07_Loop1_Extra
                 }
                 Console.WriteLine("\nPlease press the Spacebar to view the multiplication table");
             }
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+        static void Exercise8()
+        {
+            //Nhập vào 1 số nguyên n. Xuất ra kết quả phép tính theo công thức sau kết quả lấy 3 chữ số thập phân: 1 + 1 / 2^3 + 1 / 3^3 + ...+1 / n3
+            Console.WriteLine("Input a integer:");
+            int n;
+            while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
+            {
+                Console.WriteLine("Please input integer n:");
+            }
+
+            double result = 1.0; // Initialize value
+            for (int i = 2; i <= n; i++)
+            {
+                result += 1.0 / (i * i * i); // Formula
+            }
+
+            double roundedNumber = Math.Round(result, 3);
+            Console.WriteLine(roundedNumber);
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+        static void Exercise9()
+        {
+            int a;
+            int b;
+
+        again:
+            Console.WriteLine("Input 2 integer that your 1st input is bigger than 2nd input");
+            Console.WriteLine("Enter your first input");
+            if (int.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine("Enter your second input");
+                if (int.TryParse(Console.ReadLine(), out b) && b < a)
+                {
+                    int product=1; //start count number position
+                    foreach (char digit in a.ToString())
+                    {
+                        product *= (int)Char.GetNumericValue(digit); //compound assignment operators in C#
+                    }
+
+                    int sumOfb = SumOfDivisors(b);//start compare
+
+                    if (product == sumOfb)
+                    {
+                        Console.WriteLine("YES");
+                    }
+                    else
+                    {
+                        Console.WriteLine("NO");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter valid input && < 1st input");
+                    goto again;
+                }
+            } else
+            {
+                Console.WriteLine("Please enter valid input");
+                goto again;
+            }
+            Console.WriteLine("Now move to the next exercise");
+            Console.WriteLine("_______________________________");
+            Console.WriteLine(" ");
+        }
+
+        static int SumOfDivisors(int number)
+        {
+            int sum = 0;
+            for (int i = 1; i <= number / 2; i++)
+            {
+                if (number % i == 0)
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        static void Exervise10()
+        {
+
         }
     }
 }

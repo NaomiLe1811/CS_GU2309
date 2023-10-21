@@ -10,7 +10,8 @@ namespace HW_08_Array
             //Exercise1();
             //Exercise2();
             //Exercise3();
-            Exercise4();
+            //Exercise4();
+            Exercise5();
             Console.ReadKey();
         }
         static void Exercise1()
@@ -104,7 +105,7 @@ namespace HW_08_Array
 
             Console.WriteLine("Input a size for the array");
             int size = int.Parse(Console.ReadLine());
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++) //them element vao list
             {
                 Console.WriteLine($"input your next element in the list {i + 1}:");
                 int element = int.Parse(Console.ReadLine());
@@ -130,5 +131,44 @@ namespace HW_08_Array
                 Console.WriteLine("Invalid input");
             }
         }
+        static void Exercise5()
+        {
+            //Viết một ứng dụng cho phép người dùng nhập vào một ma trận số thực, sau đó tìm ra tọa độ cũng như giá trị của phần tử lớn nhất.
+            Console.WriteLine("How many row?");
+            int row = int.Parse(Console.ReadLine());
+            Console.WriteLine("How many column?");
+            int column = int.Parse(Console.ReadLine());
+
+            List<List<int>> matrix = new List<List<int>>(); //create a list
+
+            for(int i = 0; i < row; i++)
+            {
+                List<int> rows = new List<int>(); //created the rows list 
+                for (int j = 0; j < column; j++) //adding value to row and col
+                {
+                    Console.WriteLine($"Input value for row at {i + 1} column {j + 1}:");
+                    int element = int.Parse(Console.ReadLine());
+                    rows.Add(element);
+                }
+                matrix.Add(rows);
+            }
+
+            int max = matrix[0][0]; //initialize value of the matrix
+            int maxRow = 0;
+            int maxCol = 0;
+
+            for(int i = 0; i < matrix.Count; i++)
+            {
+                for(int j = 0; j < matrix.Count; j++)
+                {
+                    if (matrix[i][j] > max)
+                    {
+                        max = matrix[i][j];
+                    
+                    }
+                }
+            }
+            Console.WriteLine($"The largest element in the matrix is {max} at row {maxRow + 1}, column {maxCol + 1}.");
+        } 
     }
 }

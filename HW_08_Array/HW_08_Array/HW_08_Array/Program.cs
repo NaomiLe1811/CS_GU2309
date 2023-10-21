@@ -9,7 +9,8 @@ namespace HW_08_Array
         {
             //Exercise1();
             //Exercise2();
-            Exercise3();
+            //Exercise3();
+            Exercise4();
             Console.ReadKey();
         }
         static void Exercise1()
@@ -76,7 +77,7 @@ namespace HW_08_Array
                 int value = int.Parse(Console.ReadLine());
                 myList.Add(value);
             }
-
+            //int max = myList.Max(); DO NOT WORK WITH LIST
             int max = findMax(myList);
             int maxIndex = myList.IndexOf(max);
 
@@ -85,7 +86,7 @@ namespace HW_08_Array
 
         static int findMax(List<int> list)
         {
-            int max = int.MinValue; //initilize the max value
+            int max = 0; //initilize the max value
             foreach (int item in list)
             {
                 if (item > max)
@@ -93,6 +94,41 @@ namespace HW_08_Array
                     max = item;
                 }
             } return max;
+        }
+        static void Exercise4()
+        {
+            //Cho phép người dùng khai báo mảng mảng số nguyên gồm N phần tử. Nhập một giá trị bất kỳ từ bàn phím và vị trí cần chèn, giá trị này được chèn vào vị trí đó trong mảng.
+
+
+            List<int> myList = new List<int>();
+
+            Console.WriteLine("Input a size for the array");
+            int size = int.Parse(Console.ReadLine());
+            for (int i = 0; i < size; i++)
+            {
+                Console.WriteLine($"input your next element in the list {i + 1}:");
+                int element = int.Parse(Console.ReadLine());
+                myList.Add(element);
+            }
+
+            Console.WriteLine("Input a number you want to add");
+            int num = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Input the position you want to change");
+            int position = int.Parse(Console.ReadLine());
+
+            if(position >= 0 && position < size)
+            {
+                myList.Insert(position, num);
+                Console.WriteLine("List after add more var:");
+                foreach (var item in myList) //de di qua list
+                {
+                    Console.Write(item + " ");//in ra
+                }
+            } else
+            {
+                Console.WriteLine("Invalid input");
+            }
         }
     }
 }

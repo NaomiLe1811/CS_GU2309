@@ -15,7 +15,7 @@ namespace HW_07_Loop1_Extra
             //Exercise7();
             //Exercise8();
             //Exercise9();
-            Exercise10(); //check the formular for count digit and take first digit again
+            //Exercise10(); //check the formular for count digit and take first digit again
                           //does not work
 
             Console.ReadKey();
@@ -68,7 +68,7 @@ namespace HW_07_Loop1_Extra
         {
             //In ra tất cả số chẵn trong khoảng(M, N). Với N, M nhập từ bàn phím.
             int inputN;
-            int inputM;
+            int inputM; 
 
         again:
             Console.WriteLine("Print numbers from your input and last input");
@@ -151,7 +151,7 @@ namespace HW_07_Loop1_Extra
         static void Exercise4()
         {   //Nhập vào 2 số nguyên a và b. Yêu cầu tìm UCLN của 2 số đó.
 
-            int a; //chua hieu cong thuc, xem lai
+            int a; //xem lai
             int b;
             //int gcd;
         again:
@@ -238,7 +238,7 @@ namespace HW_07_Loop1_Extra
         static void Exercise7()
         {
             // In ra bảng cửu chương từ 2 tới 10 khi nhấn phím Space
-            int number = 2;
+            //int number = 2;
             Console.WriteLine("Press the Spacebar to view the multiplication table from 2 to 10");
             while (true)
             {

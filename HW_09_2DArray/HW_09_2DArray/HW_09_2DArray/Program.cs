@@ -8,9 +8,11 @@ namespace HW_09_2DArray
     {
         static void Main(string[] args)
         {
-            //Exercise1();
-            //Exercise1a1();
-            Exercise1a2();
+            //Exercise1(); //create list and random nums
+            //Exercise1a1(); //print diagonal elements
+            //Exercise1a2(); //print opposite diagonal elements
+            //Exercise1a3();  //print bottom left triangle
+            Exercise1a4();
         }
 
         static void Exercise1()
@@ -75,6 +77,58 @@ namespace HW_09_2DArray
             for (int i = 0; i < 5; i++)
             {
                 Console.Write(twoDList[i][4-i] + " ");
+            }
+        }
+        static void Exercise1a3()
+        {
+            Random random = new Random();
+            List<List<int>> twoDList = new List<List<int>>();
+            for (int i = 0; i < 5; i++)
+            {
+                List<int> row = new List<int>();
+                for (int j = 0; j < 5; j++)
+                {
+                    int randomValue = random.Next(10, 31);
+                    row.Add(randomValue);
+                    Console.Write(randomValue + " ");
+                }
+                twoDList.Add(row);
+                Console.WriteLine();
+            }
+            Console.WriteLine("Printing bottem left triangle:");
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < i + 1; j++)
+                {
+                    Console.Write(twoDList[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void Exercise1a4()
+        {
+            Random random = new Random();
+            List<List<int>> twoDList = new List<List<int>>();
+            for (int i = 0; i < 5; i++)
+            {
+                List<int> row = new List<int>();
+                for (int j = 0; j < 5; j++)
+                {
+                    int randomValue = random.Next(10, 31);
+                    row.Add(randomValue);
+                    Console.Write(randomValue + " ");
+                }
+                twoDList.Add(row);
+                Console.WriteLine();
+            }
+            Console.WriteLine("Printing bottem right triangle:");
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 4; j > i; j--)
+                {
+                    Console.Write(twoDList[i][j] + " ");
+                }
+                Console.WriteLine();
             }
         }
     }

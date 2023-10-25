@@ -12,7 +12,9 @@ namespace HW_09_2DArray
             //Exercise1a1(); //print diagonal elements
             //Exercise1a2(); //print opposite diagonal elements
             //Exercise1a3();  //print bottom left triangle
-            Exercise1a4();
+            //Exercise1a4(); //print bottom right, but errorr ...
+            //Exercise2();
+            Exercise2a1();
         }
 
         static void Exercise1()
@@ -129,6 +131,48 @@ namespace HW_09_2DArray
                     Console.Write(twoDList[i][j] + " ");
                 }
                 Console.WriteLine();
+            }
+        }
+        static void Exercise2()
+        {
+            Random random = new Random();
+            List<List<int>> twoDList = new List<List<int>>();
+
+            for (int i = 0; i < 5 * 5; i++)
+            {
+                int row = i / 5;
+                int col = i % 5;
+                int randomValue = random.Next(10, 31);
+                if (twoDList.Count <= row)
+                {
+                    twoDList.Add(new List<int>());
+                }
+                twoDList[row].Add(randomValue);
+                Console.Write(randomValue + " ");
+
+                if ((i + 1) % 5 == 0)
+                {
+                    Console.WriteLine();
+                }
+            }
+        }
+        static void Exercise2a1()
+        {
+            Random random = new Random();
+            int[,] twoDArray = new int[3, 3];
+
+            for (int i = 0; i < 3 * 3; i++) //3 rows * 3 cols
+            {
+                int row = i / 3;
+                int col = i % 3;
+                int randomValue = random.Next(10, 31); 
+                twoDArray[row, col] = randomValue;
+                Console.Write(randomValue + " ");
+
+                if ((i + 1) % 3 == 0)
+                {
+                    Console.WriteLine();
+                }
             }
         }
     }

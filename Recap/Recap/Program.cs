@@ -222,6 +222,20 @@ namespace Recap
             }
             static void Cau6()
             {
+                for (int i = 1; i <= 5; i++)           //in ra
+                {                                  // *
+                    for (int j = 1; j <= i; j++)   // **
+                    Console.Write("*");        // ***
+                    Console.Write("\n");           // ****
+                }
+                ______________________________
+
+                for (int i = 1; i <= 5; i++)           //in ra
+                {                                  // *
+                    for (int j = 1; j <= i; j++)   // **
+                    Console.Write("*");        // ***
+                    Console.Write("\n");           // ****
+                }
 
             }
         }

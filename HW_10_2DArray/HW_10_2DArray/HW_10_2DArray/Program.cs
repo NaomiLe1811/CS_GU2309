@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HW_10_2DArray
 {
@@ -6,27 +7,106 @@ namespace HW_10_2DArray
     {
         static void Main(string[] args)
         {
-            //Exercise1();
-            Exercise2();
+            //Exercise1(); //array
+            Exercise1a1(); //list
+            //Exercise2();
+            
             Console.ReadKey();
         }
 
         static void Exercise1()
         {
-            Console.WriteLine("Add size of rows");
-            int rows = int.Parse(Console.ReadLine());
-            List<int[]> myArray = new List<int[]>();
+            Console.WriteLine("Size of input:");
+            int size = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < rows; i++)
-            {
-                Console.WriteLine("Add size of cols");
-                int cols = int.Parse(Console.ReadLine());
-                myArray.Add(new int[cols]); // Add a new row with the specified number of columns
+            int[,] myArray = new int[size, size];
 
-                for (int j = 0; j < cols; j++)
+            //dong duoi day de nhap du lieu vao array
+            for (int i = 0; i < size; i++) //tao row
+            {         
+                for(int j = 0; j < size; j++) //tao col
                 {
-                    Console.WriteLine(myArray[i][j]);
+                    Console.WriteLine("Input your next value");
+                    int value = int.Parse(Console.ReadLine());
+
+                    myArray[i, j] = value;
                 }
+                //Console.WriteLine();
+            }
+            //sau khi array dc khoi tao, chung ta can in ra array
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(myArray[i,j] + " "); 
+                }
+                Console.WriteLine();
+            }
+
+            //in hang cheo
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (i == j)
+                    {
+                        Console.Write(myArray[i,j]);
+                    } else
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void Exercise1a1()
+        {           
+            Console.WriteLine("size of input:"); //b1: khoi tao size (row = col)
+            int size = int.Parse(Console.ReadLine());
+
+            List<List<int>> twoDList = new List<List<int>>();//b2: khoi tao 2D list
+
+            //b3: khoi tao list GAN GIONG array 2D, tao i la hang, va tao j la cot
+            for (int i = 0; i < size; i++)        
+            {
+                List<int> row = new List<int>(); //voi List, phai tao them list de them cac phan tu vao hang
+                for (int j = 0; j < size; j++)   //them cac phan tu vao hang
+                {
+                    //chung ta can them phan tu vao list
+                    Console.WriteLine("Input your value");
+                    int value = int.Parse(Console.ReadLine());
+                    //neu la array, thi se la myArray[i,j] = value , nhung day la list, cho nen ta can phai viet:
+                    row.Add(value); //them tung phan tu vao hang (row)                
+                }
+                twoDList.Add(row);//them tung hang vao bang
+            }
+
+            //bay gio in ra
+            //GIONG nhu thang array
+            for(int i = 0; i < size; i++)
+            {
+                for(int j = 0; j < size; j++)
+                {
+                    Console.Write(twoDList[i][j] + " ");
+                }
+                Console.WriteLine(" ");
+            }
+
+            //bay gio in ket qua
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if(i == j)
+                    {
+                        Console.Write(twoDList[i][j] + " ");
+                    } else
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.WriteLine(" ");
             }
         }
 

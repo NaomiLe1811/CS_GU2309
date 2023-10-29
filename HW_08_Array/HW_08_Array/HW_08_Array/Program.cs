@@ -53,6 +53,7 @@ namespace HW_08_Array
             {
                 Console.WriteLine("Could not find");
             }
+            //dung Contains de tim value if its exists
 
         }
         static void Exercise3()

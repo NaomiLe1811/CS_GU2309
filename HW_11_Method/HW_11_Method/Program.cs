@@ -7,9 +7,9 @@ namespace HW_11_Method
         static void Main(string[] args)
         {
             //Exercise1(); //C -> F && F -> C
+            //Exercise2(); //Tim min
+            Exercise3(); //xoa phan tu khoi mang
 
-  
-            Exercise2();
         }
 
         static void Exercise1()
@@ -93,5 +93,43 @@ namespace HW_11_Method
             return index;
         }
 
+        static void Exercise3()
+        {
+            int[] arr = { 4, 12, 7, 8, 17, 6, 9 };
+            Console.WriteLine("Given array");
+            int i;
+            for (i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine("Which position you want to delete?");
+            int input = int.Parse(Console.ReadLine());
+
+            int index = -1;
+            
+            /*for(i = 0; i < arr.Length; i++)
+            {
+                if (input.Equals(arr[i]){
+                    index = 1;
+                    break;
+                }
+            }*/
+            if (arr[i] == input)
+            {
+                Console.WriteLine($"The input { input} is at position { i} in the array.");
+                for (int j = i; j < arr.Length - 1; j++)
+                {
+                    arr[j] = arr[j + 1];
+                }
+                Array.Resize(ref arr, arr.Length - 1); // Resizing the array to remove the last element
+                //break;
+
+            }
+            else
+            {
+                Console.WriteLine("Could not find");
+            }
+
+        }
     }
 }

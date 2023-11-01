@@ -6,7 +6,10 @@ namespace HW_11_Method
     {
         static void Main(string[] args)
         {
-            Exercise1();
+            //Exercise1(); //C -> F && F -> C
+
+  
+            Exercise2();
         }
 
         static void Exercise1()
@@ -64,6 +67,30 @@ namespace HW_11_Method
             fahrenheit = (9.0 / 5) * celsius + 32;          
             Console.WriteLine(fahrenheit);
             return fahrenheit;
+        }
+
+        static void Exercise2()
+        {
+            int[] arr = { 4, 12, 7, 8, 17, 6, 9 };
+            Console.WriteLine("Find the min number in the array");
+            Minvalue(arr);
+
+        }
+        public static int Minvalue(int[] array)
+        {
+            int min = array[0];
+            int index = 0;
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if(array[i] < min)
+                {
+                    min = array[i];
+
+                }
+            } 
+            Console.WriteLine($"The smallest number is {min} with the position {index} in the array");
+            return index;
         }
 
     }

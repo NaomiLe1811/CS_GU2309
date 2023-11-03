@@ -10,8 +10,9 @@ namespace HW_11_Method
             //Exercise1(); //C -> F && F -> C
             //Exercise2(); //Tim min
             //Exercise3(); //xoa phan tu khoi mang, ko co method
-            Exercise4(); //xoa phan tu khoi mang co method
-            //Exercise5();//in nhieu min nho nhat
+            //Exercise4(); //xoa phan tu khoi mang co method
+            Exercise5(); //xoa tat ca element cung value
+            //Exercise6();//in nhieu min nho nhat
 
             Console.ReadKey();
 
@@ -110,6 +111,7 @@ namespace HW_11_Method
             {
                 Console.Write(list[i] + " ");
             }
+            again:
             Console.WriteLine("Which position you want to delete?");
             int delete = int.Parse(Console.ReadLine());
             int index = list.IndexOf(delete);//tra value cua index dau tien
@@ -127,6 +129,7 @@ namespace HW_11_Method
             else
             {
                 Console.WriteLine("Could not find the element in the list.");
+                    goto again;
             }
         }
 
@@ -165,30 +168,55 @@ namespace HW_11_Method
             }
         }
 
+        static void Exercise5()
+        {
+            List<int> list = new List<int> { 3, 7, 9, 1, 2, 6, 2, 4, 5, 7 };
+            deleteSameElement(list);
+        }
 
-        /*static void Exercise5()
+        public static void deleteSameElement(List<int> sameElement)
+        {
+            Console.WriteLine("Here we have a list");
+            int i;
+            for( i = 0; i < sameElement.Count; i++)
+            {
+                Console.Write(sameElement[i] + " ");
+            }
+            Console.WriteLine("which number you want to delete?");
+            int deleteNum = int.Parse(Console.ReadLine());
+            int index = sameElement.IndexOf(deleteNum);
+            sameElement.RemoveAll((x => x == deleteNum)); //RemoveAll method expects a predicate to determine which elements to remove from the list. It doesn't take the element itself as an argument. 
+            foreach (var item in sameElement)
+            {
+                
+                Console.Write(item + " ");
+            }
+        }
+
+
+        /*static void Exercise6()
        {
            int[] array = { 1, 2, 3, 1, 4, 1 };
            List<int> minIndexes = MinValue2(array);
        }
        public static List<int> MinValue2(List<int> list)
        {
-           int min = array[0]; 
+           int min = list[0]; 
            int index = 0;
            //indexes.Clear()
 
-           for (int i = 1; i < array.Count; i++) //i = 0 thi co duoc ko?
+           for (int i = 1; i < list.Count; i++) //i = 0 thi co duoc ko?
            {
-               if(array[i] < min)
+               if(list[i] < min)
                {
-                   min = array[i];
+                   min = list[i];
                    index = i;
                    //2 lenh
                    list.Clear(); //xoa' cac element dang luu trong list (indexes)
                    list.Add(i);
                    list.Add(0);
                }
-               else if (array[i] == min)
+               else if (list[i] == min)
                {
                    //1 lenh
                    list.Add(i);

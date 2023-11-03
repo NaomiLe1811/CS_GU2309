@@ -10,9 +10,10 @@ namespace HW_11_Method
             //Exercise1(); //C -> F && F -> C
             //Exercise2(); //Tim min
             //Exercise3(); //xoa phan tu khoi mang, ko co method
-            //Exercise4(); //xoa phan tu khoi mang co method
-            Exercise5(); //xoa tat ca element cung value
+            //Exercise4(); //xoa phan tu khoi mang, co method
+            //Exercise5(); //xoa tat ca element cung value
             //Exercise6();//in nhieu min nho nhat
+            Exercise7();//phương thức đếm số lần xuất hiện của ký tự trong chuỗi
 
             Console.ReadKey();
 
@@ -194,34 +195,82 @@ namespace HW_11_Method
         }
 
 
-        /*static void Exercise6()
+        static void Exercise6()
        {
-           int[] array = { 1, 2, 3, 1, 4, 1 };
-           List<int> minIndexes = MinValue2(array);
+            int size = 10; //Set the desired size of the list
+            List<int> randomList = new List<int>();
+            Random random = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                randomList.Add(random.Next(20)); // Adjust the upper limit as needed
+            }
+            // Call the MinValue2 method with the generated random list
+            MinValue2(randomList);
        }
-       public static List<int> MinValue2(List<int> list)
+       public static void MinValue2(List<int> list)
        {
            int min = list[0]; 
            int index = 0;
-           //indexes.Clear()
+            //indexes.Clear()
+            Console.WriteLine("We have a list");
+            foreach(var item in list)
+            {
+                Console.Write(item + " ");              
+            }
+            Console.Write("\n");
+            Console.WriteLine("Min number is the list is: ");
 
-           for (int i = 1; i < list.Count; i++) //i = 0 thi co duoc ko?
+            for (int i = 1; i < list.Count; i++) //i = 0 thi co duoc ko?
            {
-               if(list[i] < min)
-               {
+               if(list[i] < min) //tìm giá trị min mới, reset list
+                {
                    min = list[i];
                    index = i;
                    //2 lenh
                    list.Clear(); //xoa' cac element dang luu trong list (indexes)
                    list.Add(i);
                    list.Add(0);
-               }
+                    Console.WriteLine($"The smallest number is {min} with the position {index} in the array");
+                }
                else if (list[i] == min)
                {
                    //1 lenh
                    list.Add(i);
-               } 
+                    //Console.WriteLine($"The smallest number is {min} with the position {index} in the array");
+                } 
            }
-       } */
+       }
+
+        static void Exercise7()
+        {
+  
+            Console.WriteLine("input a string: "); //step 1: create a string
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter a character to count in the string: "); //step 2:ask a char user wants to count
+            char inputChar = Console.ReadLine()[0]; // Read the first character of the input
+
+            counting(name, inputChar);
+
+        }
+
+        public static void counting(string name, char inputChar)
+        {
+            int count = 0;
+            int i;
+
+            for(i = 0; i < name.Length; i++) //dem vong
+            {
+                if(name[i] == inputChar)
+                {
+                    count++;
+                }                
+            }
+            //in ra
+            Console.WriteLine($"The letter {name} appears {count} times");
+
+            if (count == 0)
+                Console.WriteLine("Cannot find the letter");
+
+        }
     }
 }

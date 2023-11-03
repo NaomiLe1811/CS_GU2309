@@ -9,8 +9,9 @@ namespace HW_11_Method
         {
             //Exercise1(); //C -> F && F -> C
             //Exercise2(); //Tim min
-            Exercise3(); //xoa phan tu khoi mang
-            //Exercise4();
+            //Exercise3(); //xoa phan tu khoi mang, ko co method
+            Exercise4(); //xoa phan tu khoi mang co method
+            //Exercise5();//in nhieu min nho nhat
 
             Console.ReadKey();
 
@@ -90,47 +91,18 @@ namespace HW_11_Method
                 if(array[i] < min)
                 {
                     min = array[i];
-
-
                 }
             } 
             Console.WriteLine($"The smallest number is {min} with the position {index} in the array");
             return index;
         }
 
-        /*static void Exercise4()
-        {
-            int[] array = { 1, 2, 3, 1, 4, 1 };
-            List<int> minIndexes = MinValue2(array);
-        }
-        public static List<int> MinValue2(List<int> list)
-        {
-            int min = array[0]; 
-            int index = 0;
-            //indexes.Clear()
-
-            for (int i = 1; i < array.Count; i++) //i = 0 thi co duoc ko?
-            {
-                if(array[i] < min)
-                {
-                    min = array[i];
-                    index = i;
-                    //2 lenh
-                    list.Clear(); //xoa' cac element dang luu trong list (indexes)
-                    list.Add(i);
-                    list.Add(0);
-                }
-                else if (array[i] == min)
-                {
-                    //1 lenh
-                    list.Add(i);
-                } 
-            }
-        } */
+       
 
         static void Exercise3()
         {
             List<int> list = new List<int> { 4, 12, 7, 8, 17, 6, 9 };
+
             Console.WriteLine("Given array");
             int i;
             //in mang cho de nhin
@@ -139,12 +111,12 @@ namespace HW_11_Method
                 Console.Write(list[i] + " ");
             }
             Console.WriteLine("Which position you want to delete?");
-            int input = int.Parse(Console.ReadLine());
-            int index = list.IndexOf(input);//tra value cua index dau tien
+            int delete = int.Parse(Console.ReadLine());
+            int index = list.IndexOf(delete);//tra value cua index dau tien
 
-            if (index != -1) 
+            if (delete != -1) 
             {
-                Console.WriteLine($"The input {input} is at position {index} in the list.");
+                Console.WriteLine($"The input {delete} is at position {index} in the list.");
                 list.RemoveAt(index);
                 Console.WriteLine("List after deletion:");
                 foreach (var item in list)
@@ -156,7 +128,72 @@ namespace HW_11_Method
             {
                 Console.WriteLine("Could not find the element in the list.");
             }
+        }
+
+        static void Exercise4()
+        {
+            List<int> list = new List<int> { 2, 7, 8, 2, 2, 6, 4, 5 };
+            deleteElement(list);
 
         }
+
+        public static void deleteElement(List<int> list)
+        {
+            Console.WriteLine("Here we have the array");
+            int i;
+            for(i = 0; i < list.Count; i++)
+            {
+                Console.Write(list[i] + " ");
+            }
+            Console.WriteLine("Which element you want to delete?");
+            int delete = int.Parse(Console.ReadLine());
+            int index = list.IndexOf(delete);
+
+            if (list.Contains(delete))
+            {
+                Console.WriteLine($"Your input {delete} is in the list");
+                list.Remove(delete);
+                Console.WriteLine("Now your list is");
+                foreach (var item in list)
+                {
+                    Console.Write(item + " ");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cannot find the element in the list");
+            }
+        }
+
+
+        /*static void Exercise5()
+       {
+           int[] array = { 1, 2, 3, 1, 4, 1 };
+           List<int> minIndexes = MinValue2(array);
+       }
+       public static List<int> MinValue2(List<int> list)
+       {
+           int min = array[0]; 
+           int index = 0;
+           //indexes.Clear()
+
+           for (int i = 1; i < array.Count; i++) //i = 0 thi co duoc ko?
+           {
+               if(array[i] < min)
+               {
+                   min = array[i];
+                   index = i;
+                   //2 lenh
+                   list.Clear(); //xoa' cac element dang luu trong list (indexes)
+                   list.Add(i);
+                   list.Add(0);
+               }
+               else if (array[i] == min)
+               {
+                   //1 lenh
+                   list.Add(i);
+               } 
+           }
+       } */
     }
 }

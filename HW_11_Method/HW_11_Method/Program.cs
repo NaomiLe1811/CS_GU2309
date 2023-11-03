@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HW_11_Method
 {
@@ -9,6 +10,9 @@ namespace HW_11_Method
             //Exercise1(); //C -> F && F -> C
             //Exercise2(); //Tim min
             Exercise3(); //xoa phan tu khoi mang
+            //Exercise4();
+
+            Console.ReadKey();
 
         }
 
@@ -87,47 +91,70 @@ namespace HW_11_Method
                 {
                     min = array[i];
 
+
                 }
             } 
             Console.WriteLine($"The smallest number is {min} with the position {index} in the array");
             return index;
         }
 
+        /*static void Exercise4()
+        {
+            int[] array = { 1, 2, 3, 1, 4, 1 };
+            List<int> minIndexes = MinValue2(array);
+        }
+        public static List<int> MinValue2(List<int> list)
+        {
+            int min = array[0]; 
+            int index = 0;
+            //indexes.Clear()
+
+            for (int i = 1; i < array.Count; i++) //i = 0 thi co duoc ko?
+            {
+                if(array[i] < min)
+                {
+                    min = array[i];
+                    index = i;
+                    //2 lenh
+                    list.Clear(); //xoa' cac element dang luu trong list (indexes)
+                    list.Add(i);
+                    list.Add(0);
+                }
+                else if (array[i] == min)
+                {
+                    //1 lenh
+                    list.Add(i);
+                } 
+            }
+        } */
+
         static void Exercise3()
         {
-            int[] arr = { 4, 12, 7, 8, 17, 6, 9 };
+            List<int> list = new List<int> { 4, 12, 7, 8, 17, 6, 9 };
             Console.WriteLine("Given array");
             int i;
-            for (i = 0; i < arr.Length; i++)
+            //in mang cho de nhin
+            for (i = 0; i < list.Count; i++)
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(list[i] + " ");
             }
             Console.WriteLine("Which position you want to delete?");
             int input = int.Parse(Console.ReadLine());
+            int index = list.IndexOf(input);//tra value cua index dau tien
 
-            int index = -1;
-            
-            /*for(i = 0; i < arr.Length; i++)
+            if (index != -1) 
             {
-                if (input.Equals(arr[i]){
-                    index = 1;
-                    break;
-                }
-            }*/
-            if (arr[i] == input)
-            {
-                Console.WriteLine($"The input { input} is at position { i} in the array.");
-                for (int j = i; j < arr.Length - 1; j++)
+                Console.WriteLine($"The input {input} is at position {index} in the list.");
+                list.RemoveAt(index);
+                Console.WriteLine("List after deletion:");
+                foreach (var item in list)
                 {
-                    arr[j] = arr[j + 1];
+                    Console.Write(item + " ");
                 }
-                Array.Resize(ref arr, arr.Length - 1); // Resizing the array to remove the last element
-                //break;
-
             }
             else
             {
-                Console.WriteLine("Could not find");
+                Console.WriteLine("Could not find the element in the list.");
             }
 
         }

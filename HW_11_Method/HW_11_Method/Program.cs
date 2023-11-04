@@ -256,21 +256,17 @@ namespace HW_11_Method
         public static void counting(string name, char inputChar)
         {
             int count = 0;
-            int i;
-
-            for(i = 0; i < name.Length; i++) //dem vong
+            for(int i = 0; i < name.Length; i++) //dem ky tu trung lap
             {
                 if(name[i] == inputChar)
                 {
                     count++;
                 }                
             }
-            //in ra
-            Console.WriteLine($"The letter {name} appears {count} times");
-
             if (count == 0)
                 Console.WriteLine("Cannot find the letter");
-
+            else //in ra (de ben ngoai de ko bi lap)
+                Console.WriteLine($"The letter {name} appears {count} times");
         }
     }
 }

@@ -1,0 +1,12 @@
+
+Để hiểu logic phía sau trò chơi rắn, bạn cần hiểu cách thức hoạt động cơ bản của trò chơi và cách điều khiển con rắn. Dưới đây là các bước cơ bản để bạn bắt đầu:
+
+1. Khởi tạo môi trường trò chơi: Bạn cần tạo một không gian chơi, trong đó con rắn và thức ăn của nó có thể di chuyển. Bạn cũng cần một hệ thống tọa độ để theo dõi vị trí của các đối tượng trong trò chơi.
+
+2. Di chuyển con rắn: Con rắn có thể di chuyển theo các hướng (lên, xuống, trái, phải) và phải có khả năng mọc khi ăn thức ăn. Hãy chắc chắn rằng bạn có cách để theo dõi đầu và đuôi của con rắn.
+
+3. Xử lý va chạm: Nếu con rắn chạm vào tường hoặc chạm vào chính mình, trò chơi sẽ kết thúc. Bạn cần kiểm tra xem đầu của con rắn có chạm vào tường hoặc phần thân của nó hay không.
+
+4. Thức ăn của con rắn: Thức ăn sẽ xuất hiện ngẫu nhiên trong không gian chơi. Khi con rắn ăn thức ăn, chiều dài của nó sẽ tăng lên và điểm số sẽ tăng.
+
+5. Điều khiển từ bàn phím: Người chơi có thể điều khiển hướng di chuyển của con rắn từ bàn phím. Bạn cần theo dõi các sự kiện từ bàn phím và cập nhật hướng di chuyển tương ứng của con rắn.

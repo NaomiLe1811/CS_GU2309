@@ -11,7 +11,6 @@ namespace SnakeGame
         static int score = 0;
         static bool gameOver = false;
 
-        // Định nghĩa hướng di chuyển
         enum Direction
         {
             Up,
@@ -20,7 +19,6 @@ namespace SnakeGame
             Right
         }
 
-        // Định nghĩa tọa độ
         struct Position
         {
             public int x;
@@ -32,61 +30,139 @@ namespace SnakeGame
             }
         }
 
-        static void Main(string[] args)
+        static List<Position> snake = new List<Position>();
+        static Position food = new Position();
+
+        static void InitializeGameArea()
         {
-            // Khởi tạo cửa sổ console và các biến cần thiết
-            Console.Title = "Snake Game";
-            Console.CursorVisible = false;
-            Console.SetWindowSize(width, height + 2);
-
-            // Khởi tạo danh sách con rắn, hướng di chuyển và đối tượng thức ăn
-            List<Position> snake = new List<Position>();
-            Direction direction = Direction.Right;
-            Random rand = new Random();
-            Position food = new Position(rand.Next(0, width), rand.Next(0, height));
-
-            // Thêm đầu con rắn vào danh sách
             snake.Add(new Position(width / 2, height / 2));
+            //Console.SetBufferSize(width, height);
+            //Console.SetWindowSize(width, height + 2);
+        }
 
-            // Vòng lặp chính
-            while (!gameOver)
+        static void DrawGameArea()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(food.x, food.y);
+            Console.Write("@");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            foreach (var position in snake)
             {
-                // Xử lý đầu vào từ bàn phím
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey(true);
-                    switch (key.Key)
-                    {
-                        case ConsoleKey.UpArrow:
-                            if (direction != Direction.Down)
-                                direction = Direction.Up;
-                            break;
-                        case ConsoleKey.DownArrow:
-                            if (direction != Direction.Up)
-                                direction = Direction.Down;
-                            break;
-                        case ConsoleKey.LeftArrow:
-                            if (direction != Direction.Right)
-                                direction = Direction.Left;
-                            break;
-                        case ConsoleKey.RightArrow:
-                            if (direction != Direction.Left)
-                                direction = Direction.Right;
-                            break;
-                    }
-                }
-
-                // Cập nhật vị trí của con rắn
-                // Kiểm tra va chạm
-                // Cập nhật điểm số
-                // Vẽ lại các đối tượng trên màn hình console
-
-                // Ngừng một lúc trước khi cập nhật lại màn hình
-                Thread.Sleep(100);
+                Console.SetCursorPosition(position.x, position.y);
+                Console.Write("o");
             }
 
-            // Khi trò chơi kết thúc, hiển thị thông báo "Game Over!"
-            // Dừng chương trình và chờ người chơi nhấn một phím bất kỳ để thoát
+            Console.SetCursorPosition(0, height);
+            Console.Write($"Score: {score}");
+        }
+
+        static void MoveSnake()
+        {
+            for (int i = snake.Count - 1; i >= 1; i--)
+            {
+                snake[i] = new Position(snake[i - 1].x, snake[i - 1].y);
+            }
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    snake[0] = new Position(snake[0].x, snake[0].y - 1);
+                    break;
+                case Direction.Down:
+                    snake[0] = new Position(snake[0].x, snake[0].y + 1);
+                    break;
+                case Direction.Left:
+                    snake[0] = new Position(snake[0].x - 1, snake[0].y);
+                    break;
+                case Direction.Right:
+                    snake[0] = new Position(snake[0].x + 1, snake[0].y);
+                    break;
+            }
+        }
+
+        static void HandleCollisions()
+        {
+            if (snake[0].x == food.x && snake[0].y == food.y)
+            {
+                snake.Add(new Position());
+                score += 10;
+                SpawnFood();
+            }
+
+            if (snake[0].x < 0 || snake[0].x >= width || snake[0].y < 0 || snake[0].y >= height)
+            {
+                gameOver = true;
+            }
+
+            for (int i = 1; i < snake.Count; i++)
+            {
+                if (snake[0].x == snake[i].x && snake[0].y == snake[i].y)
+                {
+                    gameOver = true;
+                }
+            }
+        }
+
+        static void SpawnFood()
+        {
+            var random = new Random();
+            food = new Position(random.Next(0, width), random.Next(0, height));
+        }
+
+        static Direction direction = Direction.Right;
+
+        static void ProcessInput()
+        {
+            if (Console.KeyAvailable)
+            {
+                var key = Console.ReadKey(true).Key;
+
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (direction != Direction.Down)
+                            direction = Direction.Up;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (direction != Direction.Up)
+                            direction = Direction.Down;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        if (direction != Direction.Right)
+                            direction = Direction.Left;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        if (direction != Direction.Left)
+                            direction = Direction.Right;
+                        break;
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.Title = "Snake Game";
+            Console.CursorVisible = false;
+
+            InitializeGameArea();
+            SpawnFood();
+
+            while (!gameOver)
+            {
+                ProcessInput();
+                MoveSnake();
+                HandleCollisions();
+                DrawGameArea();
+                Thread.Sleep(200);
+            }
+
+            Console.SetCursorPosition(width / 2 - 5, height / 2);
+            Console.WriteLine("Game Over");
+            Console.SetCursorPosition(width / 2 - 10, height / 2 + 1);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
         }
     }
 }

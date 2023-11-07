@@ -11,7 +11,7 @@ namespace SnakeGame
         static int score = 0;
         static bool gameOver = false;
 
-        enum Direction
+        enum Direction //enumeration
         {
             Up,
             Down,

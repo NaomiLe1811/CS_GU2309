@@ -12,6 +12,7 @@ namespace SnakeGame
         //NOTE: typeFruit. 1/add from random fruit in SpawnFood by creating a list/char whatever. 2/ select that elemtn. 3/choose that data selectedFruit to print
         //NOTE: respawn the fruit after every 10s 1/ create new data type DateTime 2/ add it into the SpawnFood() to update the current time 3/ add the spawn food into Main
         //NOTE: System.IO được sử dụng để ghi điểm cao nhất vào tệp và sau đó đọc nó từ tệp khi cần. Khi bạn lưu điểm cao nhất vào tệp, nó sẽ tồn tại ngay cả sau khi bạn tắt chương trình.
+        //NOTE:Tinh diem cao nhat tu line 222
 
         static int height = 20;
         static int width = 40;
@@ -25,6 +26,7 @@ namespace SnakeGame
         static char selectedFruitSymbol; // Add a static variable to store the selected fruit symbol
         static DateTime lastFoodSpawnTime; // Add a static variable to keep track of the last food spawn time
         static int highestScore = 0; // Define a static field for the highest score
+        static string fullPath = "data.rtf";
 
         enum Direction
         {
@@ -52,6 +54,7 @@ namespace SnakeGame
         {
             snake.Add(new Position(width / 2, height / 2)); //vi tri bat dau con ran
             //SpawnFood(); //ko de day dc vi initialgameare la static
+            highestScore = LoadHighestScore();
         }
 
         static void SpawnFood()
@@ -89,12 +92,12 @@ namespace SnakeGame
             // vị trí con trỏ
             Console.SetCursorPosition(0, height);
 
-            // Draw the score
+            //Draw the score
             //Console.SetCursorPosition(0, height);
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($"Score: {score}");
 
-            // Draw the highest score
+            //Draw the highest score
             //Console.SetCursorPosition(0, height + 1);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"Highest Score: {highestScore}");
@@ -119,8 +122,8 @@ namespace SnakeGame
                 snake[i] = new Position(snake[i - 1].x, snake[i - 1].y);
             }
 
-            //
-            switch (direction) //lay tu tren enum xuong
+            //lay tu tren enum xuong
+            switch (direction) 
             {
                 case Direction.Up:
                     snake[0] = new Position(snake[0].x, snake[0].y - 1);
@@ -136,7 +139,7 @@ namespace SnakeGame
                     break;
             }
         }
-
+        
         static void Collision()
         {
             //con ran cham trai cay
@@ -144,6 +147,14 @@ namespace SnakeGame
             {
                 snake.Add(new Position()); //new snake
                 score += 10;
+
+                //xu ly diem cao nhat
+                if(score > highestScore)
+                {
+                    highestScore = score;
+                    SaveHighScore(highestScore);
+                }
+                
                 SpawnFood();
             }
 
@@ -220,21 +231,19 @@ namespace SnakeGame
             }
         static int LoadHighestScore()
         {
-            string filePath = "highestscore.txt";
-            if (File.Exists(filePath))
-            {
-                string scoreString = File.ReadAllText(filePath);
-                if (int.TryParse(scoreString, out int result))
-                {
-                    return result;
-                }
-            }
-            return 0; // Default value if the file does not exist or cannot be parsed
+            // Read a file
+            string readText = File.ReadAllText(fullPath);
+            Console.WriteLine(readText);
+            return int.Parse(readText); // Default value if the file does not exist or cannot be parsed
         }
-        static void SaveHighestScore(int score)
+        
+        static void SaveHighScore(int score)
         {
-            string filePath = "highestscore.txt";
-            File.WriteAllText(filePath, score.ToString());
+            // Write file using StreamWriter
+            using (StreamWriter writer = new StreamWriter(fullPath))
+            {
+                writer.WriteLine(score);
+            }
         }
 
         static void Main(string[] args)

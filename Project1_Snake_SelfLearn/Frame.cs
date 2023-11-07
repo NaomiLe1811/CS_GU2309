@@ -11,7 +11,8 @@ namespace SnakeGame
         static int score = 0;
         static bool gameOver = false;
 
-        enum Direction //enumeration
+	//enumeration
+        enum Direction 
         {
             Up,
             Down,
@@ -19,8 +20,9 @@ namespace SnakeGame
             Right
         }
 
-        struct Position
+	//lưu trữ thông tin về vị trí trong không gian trò chơi. => dễ theo dõi vị trí của các đối tượng như con rắn, thức ăn và các phần tử khác
         {
+        struct Position 
             public int x;
             public int y;
             public Position(int x, int y)

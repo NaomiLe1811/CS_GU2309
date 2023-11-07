@@ -6,11 +6,18 @@ namespace SnakeGame
 {
     class Program
     {
+        //NOTE: how to pause the game line 157. Pausing is also included in input process
+        //NOTE: modify snake's speed based on score => in Main
+        
         static int height = 20;
         static int width = 40;
         static int score = 0;
         static Direction direction; // declare the direction variable as a static member in SnakeMovement()
+        //nhung variable them sau
         static bool gameOver = false;
+        static bool isPaused = false; // add a static variable to keep track of whether the game is paused
+        static Random random = new Random(); //for random fruit
+        static char selectedFruitSymbol; // Add a static variable to store the selected fruit symbol
 
         enum Direction
         {
@@ -42,8 +49,15 @@ namespace SnakeGame
 
         static void SpawnFood()
         {
-            var random = new Random();
-            food = new Position(random.Next(0, width), random.Next(0, height));
+            char[] fruitTypes = { '@', '%', '#' }; // Define the fruit types and their corresponding scores
+            int[] fruitScores = { 10, 5, 1 }; // Corresponding scores for each fruit type
+
+            int randomIndex = random.Next(fruitTypes.Length); // Generate a random index within the array length
+            selectedFruitSymbol = fruitTypes[randomIndex]; // Store the selected fruit symbol
+            int selectedScore = fruitScores[randomIndex]; // Get the score associated with the selected fruit
+
+            //var random = new Random();
+            food = new Position(random.Next(0, width), random.Next(0, height)); // Assuming you already have a Position struct for the food
         }
 
         //update the display after each
@@ -54,7 +68,7 @@ namespace SnakeGame
 
             //ve fruit
             Console.SetCursorPosition(food.x, food.y);
-            Console.Write("@");
+            Console.Write(selectedFruitSymbol);// // Print the selected fruit symbol
 
             //ve con ran
             Console.ForegroundColor = ConsoleColor.Red;
@@ -67,7 +81,10 @@ namespace SnakeGame
             // vị trí con trỏ
             Console.SetCursorPosition(0, height);
             // ve diem so
-            Console.Write($"Score: {score}");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine($"Score: {score}");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("Press space bar to pause");
         }
 
         static void SnakeMovement()
@@ -149,35 +166,74 @@ namespace SnakeGame
                             direction = Direction.Right;
                         break;
                 }
+                    //how to pause the game
+                    //var key = Console.ReadKey(true).Key;
+
+                    if (key == ConsoleKey.Spacebar) // if the spacebar is pressed, toggle the pause state
+                    {
+                        isPaused = !isPaused;
+                    }
+
+                    // if the game is paused, wait for the spacebar to resume
+                    while (isPaused)
+                    {
+                        if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                        {
+                            isPaused = false; // resume the game if the spacebar is pressed
+                            break;
+                        }
+                    }
+
+                    // handle other input only if the game is not paused
+                    /*if (!isPaused)
+                    {
+                        switch (key)
+                        {
+                            // handle other key inputs here
+                        }
+                    }*/
+                }
             }
-        }
 
-        static void Main(string[] args)
-        {
-            Console.Title = "Snake Game";
-            Console.CursorVisible = false;
-
-            InitializeGameArea();
-            SpawnFood();
-
-            while (!gameOver)
+            static void Main(string[] args)
             {
-                //cho phep user di chuyen (priority = > de cho khac se di chuyen cham)
-                ProcessInput();
-                //sau khi nhan nut => con ran thay doi vi tri
-                SnakeMovement();
-                //Neu con ran cham
-                Collision();
-                //update the display
-                DrawGameArea();
-                Thread.Sleep(150);
+                Console.Title = "Snake Game";
+                Console.CursorVisible = false;
+
+                InitializeGameArea();
+                SpawnFood();
+
+                while (!gameOver)
+                {
+                    //cho phep user di chuyen (priority = > de cho khac se di chuyen cham)
+                    ProcessInput();
+                    //sau khi nhan nut => con ran thay doi vi tri
+                    SnakeMovement();
+                    //Neu con ran cham
+                    Collision();
+                    //update the display
+                    DrawGameArea();
+
+                //snake's speed modify based on the score
+                if (score < 20)
+                {
+                    Thread.Sleep(100);
+                }
+                else if (score > 50)
+                {
+                    Thread.Sleep(200);
+                }
+                else
+                {
+                    Thread.Sleep(150); // Default speed for scores between 20 and 50
+                }
             }
 
-            Console.SetCursorPosition(width / 2 - 5, height / 2);
-            Console.WriteLine("Game Over");
-            Console.SetCursorPosition(width / 2 - 10, height / 2 + 1);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
-        }
+                Console.SetCursorPosition(width / 2 - 5, height / 2);
+                Console.WriteLine("Game Over");
+                Console.SetCursorPosition(width / 2 - 10, height / 2 + 1);
+                Console.WriteLine("Press any key to exit");
+                Console.ReadKey();
+            }
     }
 }

@@ -8,6 +8,7 @@ namespace SnakeGame
     {
         //NOTE: how to pause the game line 157. Pausing is also included in input process
         //NOTE: modify snake's speed based on score => in Main
+        //NOTE: typeFruit. 1/add from random fruit in SpawnFood by creating a list/char whatever. 2/ select that elemtn. 3/choose that data selectedFruit to print
         
         static int height = 20;
         static int width = 40;
@@ -83,8 +84,14 @@ namespace SnakeGame
             // ve diem so
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($"Score: {score}");
+            //ve them thong tin khac
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Press space bar to pause");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Type of Fruit:");
+            Console.WriteLine("@ = 10");
+            Console.WriteLine("% = 5");
+            Console.WriteLine("# = 1");
         }
 
         static void SnakeMovement()

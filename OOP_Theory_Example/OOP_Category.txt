@@ -1,0 +1,24 @@
+Object-Oriented Programming (OOP) is based on four main principles, often referred to as the "Four Pillars of OOP." These principles help guide the design and implementation of software systems. The four pillars are:
+		Encapsulation:
+	•	Encapsulation is the bundling of data (attributes or properties) and the methods (functions or behaviors) that operate on the data into a single unit known as a class. This concept hides the internal state of the object and restricts access to some of its components.
+		Inheritance:
+	•	Inheritance is a mechanism that allows a class (subclass or derived class) to inherit properties and behaviors from another class (base class or parent class). This promotes code reuse and establishes a relationship between classes, with the subclass inheriting the characteristics of the superclass.
+		Polymorphism:
+	•	Polymorphism means "many forms." In OOP, it allows objects of different types to be treated as objects of a common base type. Polymorphism can be achieved through method overloading and method overriding. Method overloading involves defining multiple methods with the same name but different parameter lists, while method overriding involves providing a specific implementation for a method in a subclass that is already defined in the superclass.
+		Abstraction:
+	•	Abstraction is the process of simplifying complex systems by modeling classes based on the essential properties and behaviors they share. It involves focusing on the essential features of an object while ignoring the non-essential details. Abstraction is often achieved through abstract classes and interfaces.
+These four pillars collectively provide a foundation for building modular, scalable, and maintainable software systems. Different programming languages implement these principles in various ways, but the underlying concepts remain consistent across most object-oriented languages.
+
+____________________________________________________
+
+Tính chất "Lập trình hướng đối tượng" (OOP) dựa trên bốn nguyên tắc chính, thường được gọi là "Bốn Trụ cột của OOP". Những nguyên tắc này giúp hướng dẫn quá trình thiết kế và triển khai hệ thống phần mềm. Bốn trụ cột này bao gồm:
+		Đóng gói (Encapsulation):
+	•	Đóng gói là quá trình gói gọn dữ liệu (thuộc tính hoặc trường dữ liệu) và các phương thức (hàm hoặc hành vi) mà hoạt động trên dữ liệu vào một đơn vị duy nhất gọi là lớp. Khái niệm này che giấu trạng thái nội bộ của đối tượng và hạn chế quyền truy cập vào một số thành phần của nó.
+		Kế thừa (Inheritance):
+	•	Kế thừa là một cơ chế cho phép một lớp (lớp con hoặc lớp dẫn xuất) kế thừa các thuộc tính và hành vi từ một lớp khác (lớp cơ sở hoặc lớp cha). Điều này khuyến khích việc tái sử dụng mã và thiết lập một mối quan hệ giữa các lớp, với lớp con kế thừa các đặc tính của lớp cha.
+		Đa hình (Polymorphism):
+	•	Đa hình có nghĩa là "nhiều hình dạng". Trong OOP, nó cho phép các đối tượng của các loại khác nhau được xử lý như là các đối tượng của một loại cơ bản. Đa hình có thể được đạt được thông qua quá trình nạp chồng phương thức và ghi đè phương thức. Nạp chồng phương thức bao gồm việc định nghĩa nhiều phương thức cùng tên nhưng với danh sách tham số khác nhau, trong khi ghi đè phương thức liên quan đến việc cung cấp một cài đặt cụ thể cho một phương thức trong lớp con mà đã được định nghĩa trước đó trong lớp cha.
+		Trừu tượng (Abstraction):
+	•	Trừu tượng là quá trình đơn giản hóa các hệ thống phức tạp bằng cách mô hình hóa các lớp dựa trên các thuộc tính và hành vi cần thiết. Nó bao gồm việc tập trung vào các đặc điểm cần thiết của một đối tượng trong khi bỏ qua các chi tiết không quan trọng. Trừu tượng thường được đạt được thông qua việc sử dụng lớp trừu tượng và giao diện.
+Bốn trụ cột này cùng nhau tạo nên một cơ sở để xây dựng các hệ thống phần mềm có cấu trúc, có thể mở rộng và dễ bảo trì. Các ngôn ngữ lập trình khác nhau thực hiện những nguyên tắc này theo các cách khác nhau, nhưng các khái niệm cơ bản vẫn nhất quán qua hầu hết các ngôn ngữ hướng đối tượng.
+

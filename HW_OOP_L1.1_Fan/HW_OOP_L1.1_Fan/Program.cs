@@ -6,7 +6,11 @@ namespace HW_OOP_L1._1_Fan
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Fan fan1 = new Fan(3, true, "white");
+            fan1.Display();
+
+            Fan fan2 = new Fan(1, false, "yellow");
+            fan2.Display();
         }
     }
 }

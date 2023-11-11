@@ -13,8 +13,8 @@ namespace HW13_OOP_L1
         // Constructor
         public Animal_Inheriting_(string colour, string type)
         {
-            Colour = colour; //**
-            Type = type;
+            this.Colour = colour; //**
+            this.Type = type;
         }
 
         // Phương thức trừu tượng để in thông tin (sẽ được cài đặt bởi các lớp dẫn xuất)
@@ -23,9 +23,10 @@ namespace HW13_OOP_L1
 
     //Bước 2: Tạo class Cat kế thừa từ lớp Animal, khai báo properties, constructor, và override hàm PrintInfo
     // Lớp dẫn xuất 'Cat' kế thừa từ 'Animal'
+    // Derived class
     class Cat : Animal_Inheriting_
     {
-        private string Name { get; set; } //*
+        public string Name { get; set; } //*
 
         public Cat(string colour, string type, string name) : base(colour, type) //**
         {

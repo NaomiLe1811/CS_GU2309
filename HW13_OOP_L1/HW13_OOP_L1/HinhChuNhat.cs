@@ -10,8 +10,8 @@ namespace HW13_OOP_L1
         //Constructor
         public HinhChuNhat(double dai, double rong)
         {
-            Dai = dai;
-            Rong = rong;
+            this.Dai = dai;
+            this.Rong = rong;
         }
 
         //Method to get the perimeter.

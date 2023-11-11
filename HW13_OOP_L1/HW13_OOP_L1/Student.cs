@@ -12,8 +12,8 @@ namespace HW13_OOP_L1
         //constructor
         public Student(int number, string Name)
         {
-            name = Name;
-            rollNo = number;
+            this.name = Name;
+            this.rollNo = number;
         }
 
         //static method to change the value of static variable

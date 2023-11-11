@@ -49,6 +49,8 @@ namespace HW13_OOP_L1
             s2.Display();
             s3.Display();
 
+            s3.BiDuoiHoc();
+
         }
     }
 }

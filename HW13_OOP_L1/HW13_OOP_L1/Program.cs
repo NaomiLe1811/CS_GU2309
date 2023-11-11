@@ -7,7 +7,8 @@ namespace HW13_OOP_L1
         static void Main(string[] args)
         {
             //Exercise1_HCN();
-            Exercise2_Animal();
+            //Exercise2_Animal();
+            Exercise3_Student();
         }
 
         static void Exercise1_HCN()
@@ -35,6 +36,19 @@ namespace HW13_OOP_L1
         {
             Cat cat = new Cat("White", "British", "Muop");
             cat.PrintInfo();
+        }
+        static void Exercise3_Student()
+        {
+            Student.Change();//calling change method
+                             //creating objects
+            Student s1 = new Student(22, "Elias");
+            Student s2 = new Student(43, "Joihn");
+            Student s3 = new Student(55, "Anna");
+            //calling display method
+            s1.Display();
+            s2.Display();
+            s3.Display();
+
         }
     }
 }

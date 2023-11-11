@@ -6,7 +6,8 @@ namespace HW13_OOP_L1
     {
         static void Main(string[] args)
         {
-            Exercise1_HCN();
+            //Exercise1_HCN();
+            Exercise2_Animal();
         }
 
         static void Exercise1_HCN()
@@ -29,6 +30,11 @@ namespace HW13_OOP_L1
             //in ra man hinh
             string displayResult = hcn.Display();
             Console.WriteLine("In ra: " + displayResult);
+        }
+        static void Exercise2_Animal()
+        {
+            Cat cat = new Cat("White", "British", "Muop");
+            cat.PrintInfo();
         }
     }
 }

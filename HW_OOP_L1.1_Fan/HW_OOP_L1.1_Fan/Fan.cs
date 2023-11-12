@@ -38,5 +38,10 @@ namespace HW_OOP_L1._1_Fan
         {
             Console.WriteLine($"Cai quat toc do {speed} rat la {tocDo} dang {batHayTat} co mau {colour} va ban kinh la {radius}");
         }
+
+        public override string ToString()
+        {
+            return $"Speed: {speed}, Status: {batHayTat}, Color: {colour}, Radius: {radius}";
+        }
     }
 }

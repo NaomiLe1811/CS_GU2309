@@ -27,8 +27,7 @@ namespace Animal
         private string Name { get; set; }
 
         // Constructor for initializing weight, height, and name
-        public Cat(string weight, string height, string name)
-            : base(weight, height)
+        public Cat(string weight, string height, string name) : base(weight, height)
         {
             this.Name = name;
         }

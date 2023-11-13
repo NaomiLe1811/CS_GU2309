@@ -22,7 +22,7 @@ Vậy nên, public abstract class Animal là một lớp trừu tượng có kh�
 
 _________________________________________________________
 
-why we put abstract in the casulation OOP while we have inheritance inside, 
+why we put abstract in the capsulation OOP while we have inheritance inside, 
 
 Trong lập trình hướng đối tượng (OOP), việc sử dụng từ khóa abstract đóng một vai trò quan trọng trong quá trình kế thừa và đóng gói.
 
@@ -39,3 +39,35 @@ Kế thừa giúp tái sử dụng mã nguồn, giảm sự phức tạp của m
 abstract cũng có thể được sử dụng để ẩn chi tiết triển khai và chỉ hiển thị giao diện công cộng của một đối tượng.
 Đóng gói giúp giảm sự phức tạp, bảo vệ dữ liệu và chức năng của đối tượng, và làm cho việc thay đổi triển khai bên trong đối tượng trở nên dễ dàng hơn mà không ảnh hưởng đến các phần khác của chương trình.
 Tổng cộng, việc sử dụng abstract trong OOP giúp tạo ra một mô hình chương trình linh hoạt, dễ bảo trì và mở rộng. Nó kết hợp trừu tượng hóa, kế thừa và đóng gói để xây dựng các hệ thống phần mềm có khả năng mở rộng và duy trì tốt.
+
+_________________________________________________________
+
+Example:
+public abstract class A
+{
+    public abstract void Method1();  // Phương thức trừu tượng
+}
+
+public class B : A
+{
+    public override void Method1()
+    {
+        // Thân hàm của phương thức trừu tượng được triển khai
+    }
+}
+_________________________________________________________
+
+But we do NOT to have to to actually
+
+public class A
+{
+    public void Method1()
+    {
+        // Thân hàm của phương thức
+    }
+}
+
+public class B : A
+{
+    // B không cần triển khai lại Method1 vì nó không còn là phương thức trừu tượng
+}

@@ -97,12 +97,29 @@ namespace HW_11_OOP_Geometric_System
             public Rectangle(double width, double length, String color, bool filled) : base(color, filled)
 
             {
-
                 this.width = width;
-
                 this.length = length;
-
             }
+
+            public double GetWidth()
+            {
+                return width;
+            }
+
+            public virtual void SetWidth(double width)
+            {
+                this.width = width;
+            }
+            public double GetLength()
+            {
+                return length;
+            }
+
+            public virtual void SetLength(double length)
+            {
+                this.length = length;
+            }
+
             public double GetArea()
             {
                 return (Width + Length) * 2;
@@ -121,42 +138,34 @@ namespace HW_11_OOP_Geometric_System
 
         public class Square : Rectangle
         {
-            public Square(double side) : base(side, side, "DefaultColor", true)
+            private double side;
+
+            public Square(double side) : base(side, side)
             {
+                this.side = side;
             }
+
+            public double Side { get => side; set => side = value; }
+
 
             public Square(double side, string color, bool filled) : base(side, side, color, filled)
             {
             }
 
-            public double GetSide()
-            {
-                return GetWidth();
-            }
-
-            public void SetSide(double side)
-            {
-                SetWidth(side);
-                SetLength(side);
-            }
-
-            // Override SetWidth and SetLength from Rectangle
             public override void SetWidth(double width)
             {
-                base.SetWidth(width);
-                base.SetLength(width);
+                SetSide(width);
             }
 
             public override void SetLength(double length)
             {
-                base.SetWidth(length);
-                base.SetLength(length);
+                SetSide(length);
             }
 
-            public override string ToString()
+            private void SetSide(double side)
             {
-                return "A Square with side = " + GetSide() + ", which is a subclass of " + base.ToString();
+                this.side = side;
             }
-
         }
+    }
 }

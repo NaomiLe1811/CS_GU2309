@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.IO;
+//using System.IO;
 
 namespace SnakeGame
 {
@@ -25,8 +25,8 @@ namespace SnakeGame
         static Random random = new Random(); //for random fruit
         static char selectedFruitSymbol; // Add a static variable to store the selected fruit symbol
         static DateTime lastFoodSpawnTime; // Add a static variable to keep track of the last food spawn time
-        static int highestScore = 0; // Define a static field for the highest score
-        static string fullPath = "data.rtf";
+        //static int highestScore = 0; // Define a static field for the highest score
+        //static string fullPath = "data.rtf";
 
         enum Direction
         {
@@ -54,7 +54,7 @@ namespace SnakeGame
         {
             snake.Add(new Position(width / 2, height / 2)); //vi tri bat dau con ran
             //SpawnFood(); //ko de day dc vi initialgameare la static
-            highestScore = LoadHighestScore();
+            //highestScore = LoadHighestScore();
         }
 
         static void SpawnFood()
@@ -85,7 +85,7 @@ namespace SnakeGame
             Console.ForegroundColor = ConsoleColor.Red;
             foreach (var position in snake)
             {
-                Console.SetCursorPosition(position.x, position.y);
+                //Console.SetCursorPosition(position.x, position.y);
                 Console.Write("o");
             }
 
@@ -100,7 +100,7 @@ namespace SnakeGame
             //Draw the highest score
             //Console.SetCursorPosition(0, height + 1);
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"Highest Score: {highestScore}");
+            //Console.WriteLine($"Highest Score: {highestScore}");
 
             //ve them thong tin khac
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -149,11 +149,11 @@ namespace SnakeGame
                 score += 10;
 
                 //xu ly diem cao nhat
-                if(score > highestScore)
+                /*if(score > highestScore)
                 {
                     highestScore = score;
-                    SaveHighScore(highestScore);
-                }
+                    //SaveHighScore(highestScore);
+                }*/
                 
                 SpawnFood();
             }
@@ -229,7 +229,7 @@ namespace SnakeGame
                     }*/
                 }
             }
-        static int LoadHighestScore()
+        /*static int LoadHighestScore()
         {
             // Read a file
             string readText = File.ReadAllText(fullPath);
@@ -244,7 +244,7 @@ namespace SnakeGame
             {
                 writer.WriteLine(score);
             }
-        }
+        }*/
 
         static void Main(string[] args)
             {
@@ -253,7 +253,7 @@ namespace SnakeGame
 
                 InitializeGameArea();
                 SpawnFood();
-                highestScore = LoadHighestScore(); // Load the highest score from the file
+                //highestScore = LoadHighestScore(); // Load the highest score from the file
                 while (!gameOver)
                 {
                     // Check if the time difference between the last food spawn time and the current time exceeds 10 seconds

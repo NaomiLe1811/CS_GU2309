@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Shape
 {
@@ -17,13 +18,17 @@ namespace Shape
         Console.WriteLine(circle);
       }
 
-      Array.Sort(circles);
+       IComparer<Circle> circleComparator = new CircleComparator();
+       Array.Sort(circles, circleComparator);
+       Array.Sort(circles);
 
       Console.WriteLine("After-sorted:");
       foreach (ComperableCircle circle in circles)
       {
         Console.WriteLine(circle);
       }
+
+
     }
   }
 }

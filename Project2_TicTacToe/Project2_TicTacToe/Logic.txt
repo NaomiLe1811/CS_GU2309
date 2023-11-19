@@ -1,0 +1,47 @@
+1/ Board Representation:
+
+The game board is represented as a 3x3 grid (a 2D array) where each cell can be empty (' '), contain 'X', or 'O' representing the players' moves.
+
+2/Initialization:
+
+The game starts by initializing the board to an empty state.
+
+3/ Player Turns:
+
+Players take turns entering their moves.
+The current player is either 'X' or 'O'.
+Players input the row and column where they want to place their mark.
+
+4/Move Validation:
+
+Before making a move, the game checks if the selected cell is empty. If it is, the move is valid; otherwise, the player is asked to make another move.
+
+5/ Updating the Board:
+
+After a valid move, the board is updated with the current player's mark.
+Checking for a Win:
+
+After each move, the game checks if the current player has won.
+It checks rows, columns, diagonals, and anti-diagonals for three consecutive marks.
+
+6/ Game End Conditions:
+
+If a player wins or if all cells are filled without a winner, the game ends.
+If there is a winner, the game declares the winner (current player).
+If all cells are filled and there is no winner, the game declares a draw.
+
+7/ Displaying the Board:
+
+The game displays the current state of the board after each move.
+
+8/ Switching Players:
+
+After each move, the current player is switched to the other player ('X' becomes 'O' and vice versa).
+
+9/Looping until Game End:
+
+The game continues in a loop until there is a winner or a draw.
+
+10/ Printing the Final Result:
+
+When the game ends, the final state of the board is displayed, and the result is announced (winner or draw).

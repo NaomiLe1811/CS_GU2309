@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace AssignmentIComparable
 {
-    public class CircleComparer
+    public class CircleComparer: IComparer<Circle>
     {
-        public CircleComparer()
+        public int Compare(Circle c1, Circle c2)
         {
+            if (c1.getRadius() > c2.getRadius()) return 1;
+            else if (c1.getRadius() < c2.getRadius()) return -1;
+            else return 0;
         }
     }
 }

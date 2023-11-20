@@ -85,20 +85,6 @@ namespace Project2_TicTacToe
             board[row, col] = currentPlayer;
         }
 
-        static int GetPlayerInput()
-        {
-            Console.WriteLine("Enter a number to make a move (from 1 - 9)");
-            int moveNumber = int.Parse(Console.ReadLine());
-
-            if (moveNumber < 1 || moveNumber > 9 || board[(moveNumber - 1) / 3, (moveNumber - 1) % 3] != ' ')
-            {
-                Console.WriteLine("Invalid move.");
-                return GetPlayerInput();
-            }
-
-            return moveNumber;
-        }
-
         static void NumberToRowCol(int moveNumber, out int row, out int col)
         {
             row = (moveNumber - 1) / 3;

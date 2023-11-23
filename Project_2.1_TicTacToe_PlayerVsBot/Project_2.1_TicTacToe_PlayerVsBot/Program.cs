@@ -31,7 +31,6 @@ namespace Project2_TicTacToe
         static void PlayGameVsBot()
         {
             bool gameWon = false;
-            
 
             do
             {

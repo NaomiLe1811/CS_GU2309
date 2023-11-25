@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
+
 namespace HW_13_File_Serialization
 {
     public class ReadTextFileExample
     {
-        void ReadTextFileExample(string filePath)
+        public ReadTextFileExample(string filePath)
         {
             try
             {
@@ -24,9 +26,17 @@ namespace HW_13_File_Serialization
                 reader.Close();
                 Console.WriteLine("Total: " + sum);
             }
-            catch (System.Exception)
+            catch (FileNotFoundException)
             {
-                Console.Error.WriteLine("File not found or invalid content");
+                Console.Error.WriteLine("File not found");
+            }
+            catch (FormatException)
+            {
+                Console.Error.WriteLine("Invalid content in the file");
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("An error occurred: " + ex.Message);
             }
         }
     }

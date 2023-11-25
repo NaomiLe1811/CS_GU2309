@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-//using System.IO;
+using System.IO;
 
 namespace SnakeGame
 {
@@ -52,6 +52,7 @@ namespace SnakeGame
 
         static void InitializeGameArea()
         {
+            
             snake.Add(new Position(width / 2, height / 2)); //vi tri bat dau con ran
             //SpawnFood(); //ko de day dc vi initialgameare la static
             //highestScore = LoadHighestScore();
@@ -112,6 +113,8 @@ namespace SnakeGame
             // Show the pause instructions
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Press space bar to pause");
+
+            
         }
 
         static void SnakeMovement()
@@ -149,10 +152,10 @@ namespace SnakeGame
                 score += 10;
 
                 //xu ly diem cao nhat
-                /*if(score > highestScore)
+                /*if (score > highestScore)
                 {
                     highestScore = score;
-                    //SaveHighScore(highestScore);
+                    SaveHighScore(highestScore);
                 }*/
 
                 SpawnFood();
@@ -218,53 +221,79 @@ namespace SnakeGame
                         break;
                     }
                 }
-            }
 
-            static void Main(string[] args)
-            {
-                Console.Title = "Snake Game";
-                Console.CursorVisible = false;
-
-                InitializeGameArea();
-                SpawnFood();
-                //highestScore = LoadHighestScore(); // Load the highest score from the file
-                while (!gameOver)
+                // handle other input only if the game is not paused
+                /*if (!isPaused)
                 {
-                    // Check if the time difference between the last food spawn time and the current time exceeds 10 seconds
-                    if ((DateTime.Now - lastFoodSpawnTime).TotalSeconds > 6)
+                    switch (key)
                     {
-                        SpawnFood(); // Respawn the food
+                        // handle other key inputs here
                     }
-                    //cho phep user di chuyen (priority = > de cho khac se di chuyen cham)
-                    ProcessInput();
-                    //sau khi nhan nut => con ran thay doi vi tri
-                    SnakeMovement();
-                    //Neu con ran cham
-                    Collision();
-                    //update the display
-                    DrawGameArea();
-
-                    //snake's speed modify based on the score
-                    if (score < 20)
-                    {
-                        Thread.Sleep(150);
-                    }
-                    else if (score > 50)
-                    {
-                        Thread.Sleep(200);
-                    }
-                    else
-                    {
-                        Thread.Sleep(180); // Default speed for scores between 20 and 50
-                    }
-                }
-
-                Console.SetCursorPosition(width / 2 - 5, height / 2);
-                Console.WriteLine("Game Over");
-                Console.SetCursorPosition(width / 2 - 10, height / 2 + 1);
-                Console.WriteLine("Press any key to exit");
-                Console.ReadKey();
+                }*/
             }
+        }
+        /*static int LoadHighestScore()
+        {
+            // Read a file
+            //string readText = File.ReadAllText(fullPath);
+            Console.WriteLine(readText);
+            return int.Parse(readText); // Default value if the file does not exist or cannot be parsed
+        }
+
+        static void SaveHighScore(int score)
+        {
+            // Write file using StreamWriter
+            using (StreamWriter writer = new StreamWriter(fullPath))
+            {
+                writer.WriteLine(score);
+            }
+        }*/
+
+        static void Main(string[] args)
+        {
+            Console.Title = "Snake Game";
+            Console.CursorVisible = false;
+
+            InitializeGameArea();
+            SpawnFood();
+            //highestScore = LoadHighestScore(); // Load the highest score from the file
+            while (!gameOver)
+            {
+                Console.Clear();
+                // Check if the time difference between the last food spawn time and the current time exceeds 10 seconds
+                if ((DateTime.Now - lastFoodSpawnTime).TotalSeconds > 6)
+                {
+                    SpawnFood(); // Respawn the food
+                }
+                //cho phep user di chuyen (priority = > de cho khac se di chuyen cham)
+                ProcessInput();
+                //sau khi nhan nut => con ran thay doi vi tri
+                SnakeMovement();
+                //Neu con ran cham
+                Collision();
+                //update the display
+                DrawGameArea();
+
+                //snake's speed modify based on the score
+                if (score < 20)
+                {
+                    Thread.Sleep(150);
+                }
+                else if (score > 50)
+                {
+                    Thread.Sleep(200);
+                }
+                else
+                {
+                    Thread.Sleep(180); // Default speed for scores between 20 and 50
+                }
+            }
+
+            Console.SetCursorPosition(width / 2 - 5, height / 2);
+            Console.WriteLine("Game Over");
+            Console.SetCursorPosition(width / 2 - 10, height / 2 + 1);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
         }
     }
 }

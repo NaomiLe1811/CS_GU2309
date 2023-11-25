@@ -123,7 +123,7 @@ namespace SnakeGame
             }
 
             //lay tu tren enum xuong
-            switch (direction) 
+            switch (direction)
             {
                 case Direction.Up:
                     snake[0] = new Position(snake[0].x, snake[0].y - 1);
@@ -139,7 +139,7 @@ namespace SnakeGame
                     break;
             }
         }
-        
+
         static void Collision()
         {
             //con ran cham trai cay
@@ -154,7 +154,7 @@ namespace SnakeGame
                     highestScore = score;
                     //SaveHighScore(highestScore);
                 }*/
-                
+
                 SpawnFood();
             }
 
@@ -201,52 +201,26 @@ namespace SnakeGame
                             direction = Direction.Right;
                         break;
                 }
-                    //how to pause the game
-                    //var key = Console.ReadKey(true).Key;
+                //how to pause the game
+                //var key = Console.ReadKey(true).Key;
 
-                    if (key == ConsoleKey.Spacebar) // if the spacebar is pressed, toggle the pause state
+                if (key == ConsoleKey.Spacebar) // if the spacebar is pressed, toggle the pause state
+                {
+                    isPaused = !isPaused;
+                }
+
+                // if the game is paused, wait for the spacebar to resume
+                while (isPaused)
+                {
+                    if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
                     {
-                        isPaused = !isPaused;
+                        isPaused = false; // resume the game if the spacebar is pressed
+                        break;
                     }
-
-                    // if the game is paused, wait for the spacebar to resume
-                    while (isPaused)
-                    {
-                        if (Console.ReadKey(true).Key == ConsoleKey.Spacebar)
-                        {
-                            isPaused = false; // resume the game if the spacebar is pressed
-                            break;
-                        }
-                    }
-
-                    // handle other input only if the game is not paused
-                    /*if (!isPaused)
-                    {
-                        switch (key)
-                        {
-                            // handle other key inputs here
-                        }
-                    }*/
                 }
             }
-        /*static int LoadHighestScore()
-        {
-            // Read a file
-            string readText = File.ReadAllText(fullPath);
-            Console.WriteLine(readText);
-            return int.Parse(readText); // Default value if the file does not exist or cannot be parsed
-        }
-        
-        static void SaveHighScore(int score)
-        {
-            // Write file using StreamWriter
-            using (StreamWriter writer = new StreamWriter(fullPath))
-            {
-                writer.WriteLine(score);
-            }
-        }*/
 
-        static void Main(string[] args)
+            static void Main(string[] args)
             {
                 Console.Title = "Snake Game";
                 Console.CursorVisible = false;
@@ -283,7 +257,7 @@ namespace SnakeGame
                     {
                         Thread.Sleep(180); // Default speed for scores between 20 and 50
                     }
-            }
+                }
 
                 Console.SetCursorPosition(width / 2 - 5, height / 2);
                 Console.WriteLine("Game Over");
@@ -291,5 +265,6 @@ namespace SnakeGame
                 Console.WriteLine("Press any key to exit");
                 Console.ReadKey();
             }
+        }
     }
 }

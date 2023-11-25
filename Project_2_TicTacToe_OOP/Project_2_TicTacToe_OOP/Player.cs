@@ -3,7 +3,7 @@ namespace Project_2_TicTacToe_OOP
 {
     public class Player
     {
-         public string Name { get; }
+    public string Name { get; }
     public char Symbol { get; }
 
     public Player(string name, char symbol)

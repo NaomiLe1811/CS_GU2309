@@ -34,15 +34,15 @@ namespace Project_2_TicTacToe_OOP
 
                 int userInput;
 
-                /*if (currentPlayer is Bot)
+                if (currentPlayer is Bot)
                 {
                     userInput = ((Bot)currentPlayer).GetMove(board);
-                }*/
+                }
                 //Open when you want to bot vs bot
-                if(currentPlayer is BotandBot)
+                /*if(currentPlayer is BotandBot)
                 {
                     userInput = ((BotandBot)currentPlayer).GetMove(board);
-                }
+                }*/
                 else
                 {
                     do

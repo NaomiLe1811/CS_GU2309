@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HW_13_File_Serialization
+namespace HW_16._1_File_Serialization
 {
     class Program
     {
@@ -9,8 +9,6 @@ namespace HW_13_File_Serialization
             Console.WriteLine("Please input file path");
             string path = Console.ReadLine();
             Console.WriteLine("File path: " + path);
-
-            // Instantiate the ReadTextFileExample class and call the correct method
             ReadTextFileExample example = new ReadTextFileExample();
             example.ReadTextFile(path);
         }
